@@ -1,0 +1,14 @@
+[
+  {
+    "topic": "Java Memory Model",
+    "content": "JVM Memory Areas:\n- Heap: Objects and class instances. Shared across threads. GC-managed. Young Gen (Eden + Survivor S0/S1) + Old Gen + Metaspace.\n- Stack: Thread-local. Stores frames for each method call (local variables, operand stack, reference to constant pool).\n- Metaspace (Java 8+): Replaced PermGen. Stores class metadata. Native memory, auto-grows.\n- Code Cache: JIT-compiled native code.\n- PC Register: Thread-local program counter.\n\nGarbage Collection:\n- Minor GC: Eden \u2192 Survivor. Fast. Stop-the-world briefly.\n- Major/Full GC: Old Gen. Slower. GC algorithms: G1 (default Java 9+), ZGC (sub-1ms pauses), Shenandoah."
+  },
+  {
+    "topic": "Java Collections Framework",
+    "content": "List (ordered, allows duplicates):\n- ArrayList: Dynamic array. O(1) get, O(n) insert/delete middle.\n- LinkedList: Doubly linked. O(1) insert/delete at ends, O(n) get. Also implements Deque.\n\nSet (no duplicates):\n- HashSet: Hash table. O(1) add/contains. No order. Backed by HashMap.\n- LinkedHashSet: Insertion-order maintained. O(1) operations.\n- TreeSet: Red-black tree. O(log n). Sorted order. Implements NavigableSet.\n\nMap (key-value):\n- HashMap: O(1) get/put. Null keys/values. Not thread-safe. Java 8: treeifies buckets at 8 elements.\n- LinkedHashMap: Insertion/access order. LRU cache implementation.\n- TreeMap: Sorted keys. O(log n).\n- ConcurrentHashMap: Thread-safe. Segment locking (Java 7) / CAS + synchronized (Java 8+)."
+  },
+  {
+    "question": "Explain Java 8 Stream API with examples",
+    "answer": "Stream API enables functional-style operations on collections (lazy, pipelined).\n\nKey operations:\n- Intermediate (lazy): filter(), map(), flatMap(), sorted(), distinct(), limit(), peek()\n- Terminal (eager): collect(), forEach(), reduce(), count(), findFirst(), anyMatch(), toList()\n\nExamples:\n// Filter and collect\nList<String> seniors = employees.stream()\n    .filter(e -> e.getAge() > 30)\n    .map(Employee::getName)\n    .sorted()\n    .collect(Collectors.toList());\n\n// Reduce\nint total = numbers.stream().reduce(0, Integer::sum);\n\n// Group by\nMap<String, List<Employee>> byDept = employees.stream()\n    .collect(Collectors.groupingBy(Employee::getDept));\n\nParallel streams: stream().parallel() \u2014 use with caution; overhead for small collections."
+  }
+]

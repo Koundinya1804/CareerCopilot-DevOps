@@ -1,0 +1,14 @@
+[
+  {
+    "topic": "Amazon Interview Process",
+    "content": "Amazon SDE roles typically involve 4-6 rounds:\n\n1. Online Assessment (OA): 2 coding problems (medium/hard LeetCode difficulty). 90 minutes. Focus: arrays, strings, graphs, DP.\n\n2. Phone Screen: 1 coding problem + 1-2 leadership principle questions.\n\n3. Virtual On-site (Loop): 4-5 rounds, each ~1 hour.\n   - 2-3 Coding rounds: Medium-hard problems. Think aloud, ask clarifying questions.\n   - 1 System Design round (SDE-2+): Design scalable systems (notification service, URL shortener).\n   - 1 Behavioural (Bar Raiser): Deep dive into 3-4 leadership principles using STAR.\n\nAmazon Leadership Principles (must know all 16):\nCustomer Obsession, Ownership, Invent and Simplify, Are Right A Lot, Learn and Be Curious, Hire and Develop the Best, Insist on the Highest Standards, Think Big, Bias for Action, Frugality, Earn Trust, Dive Deep, Have Backbone, Deliver Results, Strive to be Earth's Best Employer, Success and Scale Bring Broad Responsibility.\n\nTip: For every LP, prepare 2-3 STAR stories from your experience."
+  },
+  {
+    "topic": "Google Interview Process",
+    "content": "Google SWE Interview Process:\n\n1. Resume Screen: ATS + recruiter review. Keywords: scalable, distributed, impact metrics.\n\n2. Phone/Video Screen: 1 coding problem (45 min). Google Docs or CoderPad. Medium LeetCode.\n\n3. On-site (4-5 rounds for SWE):\n   - 2 Coding rounds: 1-2 problems each. Clean, optimal code. Handle edge cases.\n   - 1 System Design: Large-scale distributed system. Drive the discussion. Cover: requirements, capacity estimation, API design, data model, component design, scaling.\n   - 1 Behavioural: Leadership, teamwork, conflict. Use STAR.\n   - 1 Googleyness: Cultural fit, learning mindset.\n\nScoring: 1-4 per category (hire at 3+). Hiring Committee reviews all feedback.\n\nPreparation: 200+ LeetCode (focus on Google tagged), CTCI, System Design Interview (Alex Xu)."
+  },
+  {
+    "topic": "TCS, Infosys, Wipro Campus Process",
+    "content": "Mass recruitment process for freshers:\n\nTCS NQT (National Qualifier Test):\n- Sections: Numerical Ability, Verbal, Reasoning, Programming Logic, Coding (2 problems).\n- Cutoff: ~60-65%. Negative marking in some sections.\n- HR Round: Basic background questions, relocation, shift preferences.\n\nInfoosys:\n- Online: Reasoning (30Q/35min), Math (10Q/35min), Verbal (20Q/20min).\n- Coding: 2 problems (Python/Java/C).\n- HR Round: Situational + HR questions.\n\nWipro NLTH:\n- Online: Aptitude, Essay writing, Coding (2 problems).\n- Technical Interview: Data structures, OOP, DBMS, projects, 1 coding question.\n- HR Interview.\n\nTips for all: Practice 100+ aptitude questions daily. Know DS, OOP, DBMS well. Have 2 strong projects. Resume: 1 page, quantified achievements."
+  }
+]

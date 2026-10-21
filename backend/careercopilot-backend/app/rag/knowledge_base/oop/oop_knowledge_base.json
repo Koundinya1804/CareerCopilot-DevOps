@@ -1,0 +1,14 @@
+[
+  {
+    "topic": "Four Pillars of OOP",
+    "content": "1. Encapsulation: Bundling data (attributes) and methods that operate on data into a single unit (class). Restricts direct access via access modifiers (private, protected, public). Benefits: Data hiding, controlled access, maintainability.\n\n2. Abstraction: Hiding implementation details and showing only essential features. Achieved via abstract classes and interfaces. Example: You drive a car without knowing engine internals.\n\n3. Inheritance: A class (child) acquires properties of another class (parent). Promotes code reuse. Types: Single, multiple (via interfaces in Java), multilevel, hierarchical, hybrid.\n\n4. Polymorphism: Same interface, different behaviour.\n- Compile-time (static): Method overloading (same name, different parameters).\n- Runtime (dynamic): Method overriding (child class redefines parent method). Resolved via virtual dispatch."
+  },
+  {
+    "topic": "SOLID Principles",
+    "content": "S \u2014 Single Responsibility Principle: A class should have only one reason to change. Each class does one thing.\nO \u2014 Open/Closed Principle: Open for extension, closed for modification. Use inheritance/interfaces to extend without changing existing code.\nL \u2014 Liskov Substitution Principle: Subtypes must be substitutable for their base types without altering correctness. Square should NOT extend Rectangle if it breaks the contract.\nI \u2014 Interface Segregation Principle: Clients should not be forced to implement interfaces they don't use. Prefer many small interfaces over one large one.\nD \u2014 Dependency Inversion Principle: High-level modules should not depend on low-level modules \u2014 both depend on abstractions. Inject dependencies (DI containers)."
+  },
+  {
+    "question": "What is the difference between an abstract class and an interface?",
+    "answer": "Abstract Class:\n- Can have both abstract (no body) and concrete methods.\n- Can have constructors, instance variables, access modifiers.\n- Single inheritance (a class can extend only one abstract class).\n- Use when: Classes share common implementation + related hierarchy.\n\nInterface:\n- All methods are abstract by default (Java 8+ allows default/static methods).\n- No instance variables (only public static final constants).\n- Multiple implementation supported (a class can implement many interfaces).\n- Use when: Unrelated classes need the same contract (e.g., Serializable, Comparable).\n\nRule of thumb: 'IS-A' with shared code \u2192 abstract class. 'CAN-DO' contract \u2192 interface."
+  }
+]

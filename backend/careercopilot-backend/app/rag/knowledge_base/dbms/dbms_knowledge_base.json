@@ -1,0 +1,30 @@
+[
+  {
+    "topic": "ACID Properties",
+    "content": "ACID properties ensure reliable database transactions:\n- Atomicity: A transaction is all-or-nothing. If any part fails, the entire transaction is rolled back.\n- Consistency: A transaction brings the database from one valid state to another, maintaining data integrity.\n- Isolation: Concurrent transactions execute as if they were serial. Isolation levels: READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE.\n- Durability: Once committed, a transaction persists even after system failure (WAL logs, checkpoints)."
+  },
+  {
+    "topic": "Normalization",
+    "content": "Normalization reduces data redundancy:\n1NF: Atomic columns, no repeating groups.\n2NF: 1NF + no partial dependency (non-key columns depend on whole composite key).\n3NF: 2NF + no transitive dependency (non-key column depends on another non-key column).\nBCNF: 3NF + for every X\u2192Y, X must be a superkey.\n4NF: BCNF + no multi-valued dependencies.\nDenormalization adds redundancy for read performance."
+  },
+  {
+    "topic": "SQL Joins",
+    "content": "Types of SQL joins:\n- INNER JOIN: Returns rows where condition matches in both tables.\n- LEFT JOIN: All rows from left + matched rows from right (NULL if no match).\n- RIGHT JOIN: All rows from right + matched rows from left.\n- FULL OUTER JOIN: All rows from both; NULLs where no match.\n- CROSS JOIN: Cartesian product of both tables.\n- SELF JOIN: Join a table with itself (e.g., find manager-employee relationships).\nExample: SELECT e.name, d.name FROM employees e INNER JOIN departments d ON e.dept_id = d.id;"
+  },
+  {
+    "topic": "Indexing",
+    "content": "Indexes speed up queries by creating a data structure for fast lookup:\n- B-Tree Index: Default in most RDBMS. Supports range queries, ORDER BY. O(log n) lookup.\n- Hash Index: O(1) lookup for equality. Doesn't support range queries (used in hash-based joins).\n- Composite Index: Multi-column index. Column order matters \u2014 leftmost prefix rule.\n- Covering Index: Index contains all columns needed for a query (avoids table lookup).\n- Clustered vs Non-Clustered: Clustered index determines physical row order (1 per table). Non-clustered creates separate structure.\nQuery: EXPLAIN SELECT * reveals index usage."
+  },
+  {
+    "topic": "Transactions and Concurrency",
+    "content": "Concurrency problems without isolation:\n- Dirty Read: Reading uncommitted data from another transaction.\n- Non-Repeatable Read: Same query returns different values within a transaction.\n- Phantom Read: New rows appear in repeated range queries.\n\nIsolation levels solve these:\n- READ UNCOMMITTED: Allows dirty reads (fastest, least safe).\n- READ COMMITTED: Prevents dirty reads.\n- REPEATABLE READ: Prevents dirty and non-repeatable reads (MySQL InnoDB default).\n- SERIALIZABLE: Prevents all anomalies (slowest).\n\nDeadlock: Two transactions wait for each other's locks. DB detects and rolls back one."
+  },
+  {
+    "question": "What is the difference between DELETE, TRUNCATE, and DROP?",
+    "answer": "DELETE: DML command. Removes specific rows based on WHERE clause. Logged row-by-row. Can be rolled back. Triggers fire. Slower for large data.\nTRUNCATE: DDL command. Removes all rows. Minimal logging (logs page deallocation). Cannot be rolled back in most DBs. Faster than DELETE. Resets identity columns.\nDROP: DDL command. Removes the entire table including schema, data, indexes, and constraints. Cannot be rolled back."
+  },
+  {
+    "question": "Explain CAP theorem with an example",
+    "answer": "CAP theorem states a distributed system can guarantee only 2 of 3:\n- Consistency: All nodes see the same data simultaneously.\n- Availability: Every request receives a response (not necessarily latest data).\n- Partition Tolerance: System continues operating despite network partitions.\n\nExample:\n- CA (no partition tolerance): Traditional RDBMS like PostgreSQL in single-node setup.\n- CP (no availability): HBase, Zookeeper \u2014 prefer consistency over availability during partitions.\n- AP (no consistency): Cassandra, DynamoDB \u2014 prefer availability; eventual consistency."
+  }
+]

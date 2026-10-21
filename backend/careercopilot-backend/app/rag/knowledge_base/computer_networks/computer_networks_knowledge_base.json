@@ -1,0 +1,18 @@
+[
+  {
+    "topic": "OSI Model",
+    "content": "OSI (Open Systems Interconnection) model \u2014 7 layers (mnemonic: Please Do Not Throw Sausage Pizza Away):\n7. Application: User-facing protocols (HTTP, FTP, SMTP, DNS).\n6. Presentation: Data encoding, encryption, compression (SSL/TLS, JPEG).\n5. Session: Session management, synchronisation (NetBIOS, RPC).\n4. Transport: End-to-end communication, reliability (TCP, UDP). Segments.\n3. Network: Logical addressing, routing (IP, ICMP, OSPF). Packets.\n2. Data Link: MAC addressing, framing, error detection (Ethernet, PPP). Frames.\n1. Physical: Bits over physical medium (cables, Wi-Fi signals).\n\nTCP/IP model compresses to 4 layers: Application, Transport, Internet, Network Access."
+  },
+  {
+    "topic": "TCP vs UDP",
+    "content": "TCP (Transmission Control Protocol):\n- Connection-oriented (3-way handshake: SYN \u2192 SYN-ACK \u2192 ACK).\n- Reliable: Guaranteed delivery, ordering, error correction, retransmission.\n- Flow control (sliding window), congestion control (slow start, AIMD).\n- Higher overhead. Used for: HTTP, FTP, SMTP, SSH.\n\nUDP (User Datagram Protocol):\n- Connectionless. No handshake.\n- Unreliable: No guaranteed delivery or ordering.\n- Low overhead, fast.\n- Used for: DNS queries, video streaming, VoIP, gaming, DHCP.\n\nTCP 4-way termination: FIN \u2192 FIN-ACK \u2192 FIN \u2192 FIN-ACK."
+  },
+  {
+    "topic": "HTTP vs HTTPS",
+    "content": "HTTP (HyperText Transfer Protocol):\n- Application layer protocol. Default port 80.\n- Stateless. Each request independent.\n- HTTP/1.1: Persistent connections, pipelining.\n- HTTP/2: Binary framing, multiplexing (multiple streams over one connection), header compression (HPACK), server push.\n- HTTP/3: Built on QUIC (UDP-based), 0-RTT connection, eliminates head-of-line blocking.\n\nHTTPS:\n- HTTP over TLS. Default port 443.\n- TLS handshake: Cipher negotiation \u2192 certificate exchange \u2192 key exchange \u2192 symmetric encryption.\n- Provides: Confidentiality, integrity, authentication.\n- Certificate types: DV, OV, EV. Certificate Authorities (CAs) sign certificates."
+  },
+  {
+    "question": "Explain the TCP 3-way handshake and why it is needed",
+    "answer": "The TCP 3-way handshake establishes a connection before data transfer:\n1. SYN: Client sends TCP segment with SYN flag and random Initial Sequence Number (ISN_c).\n2. SYN-ACK: Server responds with SYN+ACK flags, its own ISN_s, and ACK = ISN_c + 1.\n3. ACK: Client sends ACK = ISN_s + 1. Connection established.\n\nWhy needed:\n- Synchronises sequence numbers on both sides (prevents old packets from being accepted).\n- Verifies both parties can send and receive.\n- Agrees on initial sequence numbers for reliable ordered delivery.\n\nSYN flood attack: Attacker sends many SYN packets without completing handshake, exhausting server resources. Mitigated by SYN cookies."
+  }
+]

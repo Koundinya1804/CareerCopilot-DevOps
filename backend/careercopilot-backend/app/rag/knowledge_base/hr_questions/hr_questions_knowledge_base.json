@@ -1,0 +1,18 @@
+[
+  {
+    "question": "Tell me about yourself",
+    "answer": "Structure: Present \u2192 Past \u2192 Future (2 minutes max)\n\nSample Answer:\n'I'm a final-year B.Tech Computer Science student at [University]. Currently, I'm building CareerCopilot AI \u2014 a RAG-powered placement preparation platform using FastAPI, LangChain, and Gemini.\n\nOver the past two years, I've interned at two startups where I developed REST APIs and improved database query performance by 40%. I'm proficient in Python, Java, and SQL, and I've solved 300+ problems on LeetCode.\n\nLooking ahead, I'm excited to join a product-focused engineering team where I can build scalable systems and grow into a senior engineering role within 3-4 years.\n\nI chose your company because of your engineering culture and the scale of problems you're solving.'"
+  },
+  {
+    "question": "What is your greatest weakness?",
+    "answer": "Rules: Be genuine (not 'I work too hard'), show self-awareness, ALWAYS end with mitigation action.\n\nSample Answer:\n'My greatest weakness has been public speaking and presenting technical work to non-technical stakeholders. I used to focus so much on technical detail that I'd lose my audience.\n\nI realised this when my project demo got confused reactions despite solid technical work. Since then, I've:\n1. Joined my college's technical presentation club.\n2. Practised the 'explain to a 5-year-old' technique before every presentation.\n3. Recorded myself and reviewed the playback.\n\nI've presented to professors and industry judges twice this semester with positive feedback. It's still a work in progress, but I'm deliberately improving.'"
+  },
+  {
+    "question": "Where do you see yourself in 5 years?",
+    "answer": "Goal: Show ambition aligned with the role + commitment to grow with the company.\n\nSample Answer:\n'In 5 years, I see myself as a senior software engineer or tech lead, owning end-to-end delivery of significant product features.\n\nIn the first year, I want to deeply understand your codebase, ship production features, and learn from senior engineers. By year 3, I aim to mentor junior developers and lead small technical initiatives. By year 5, I want to be the go-to person for system design decisions in my team.\n\nI'm particularly interested in distributed systems and ML infrastructure \u2014 I'd love to grow expertise in these areas within your platform.'"
+  },
+  {
+    "question": "Describe a challenge you faced and how you overcame it (STAR method)",
+    "answer": "STAR = Situation \u2192 Task \u2192 Action \u2192 Result\n\nSample Answer:\nS: During my final-year project, our team of 4 was building a RAG pipeline with a 3-week deadline. Two days before submission, we discovered our ChromaDB queries were returning irrelevant results \u2014 relevance scores below 0.2.\n\nT: I was responsible for the retrieval pipeline and had to fix it before the deadline without breaking existing components.\n\nA: I debugged systematically: first confirmed the embedding model was working correctly, then discovered we had used cosine distance in ChromaDB but were filtering with a threshold designed for cosine similarity (inverted scale). I corrected the metric, re-indexed all documents, and added automated relevance score logging to catch such issues earlier.\n\nR: Relevance scores improved to 0.7+ average. The project received an A grade and was selected for the department's best project showcase. I also wrote a post-mortem document that helped our batch understand vector database metrics better."
+  }
+]

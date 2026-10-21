@@ -1,0 +1,18 @@
+[
+  {
+    "question": "If a train travels 360 km in 4 hours, what is its speed in m/s?",
+    "answer": "Speed = Distance / Time = 360 km / 4 h = 90 km/h\nConvert to m/s: 90 \u00d7 (1000/3600) = 90 \u00d7 (5/18) = 25 m/s\n\nKey formula: km/h to m/s \u2192 multiply by 5/18. m/s to km/h \u2192 multiply by 18/5."
+  },
+  {
+    "question": "A can do a work in 12 days, B in 15 days. How long will they take together?",
+    "answer": "A's rate = 1/12 work/day. B's rate = 1/15 work/day.\nCombined rate = 1/12 + 1/15 = 5/60 + 4/60 = 9/60 = 3/20 work/day.\nTime = 1 \u00f7 (3/20) = 20/3 = 6\u2154 days \u2248 6 days 16 hours.\n\nFormula: If A does in 'a' days and B in 'b' days, together = ab/(a+b) days."
+  },
+  {
+    "question": "Find the probability of getting a sum of 7 when two dice are rolled.",
+    "answer": "Total outcomes when two dice rolled = 6 \u00d7 6 = 36.\nFavourable outcomes (sum = 7): (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) = 6 outcomes.\nP(sum = 7) = 6/36 = 1/6 \u2248 0.167 or 16.7%.\n\nNote: Sum of 7 is the most probable outcome when rolling two dice."
+  },
+  {
+    "question": "In a class of 60 students, 40% are girls. 25% of boys and 30% of girls passed. How many students passed?",
+    "answer": "Girls = 40% of 60 = 24. Boys = 60 - 24 = 36.\nBoys passed = 25% of 36 = 9. Girls passed = 30% of 24 = 7.2 \u2248 7 (or 7.2 if decimals allowed).\nTotal passed = 9 + 7 = 16 students (or 16.2 if exact)."
+  }
+]

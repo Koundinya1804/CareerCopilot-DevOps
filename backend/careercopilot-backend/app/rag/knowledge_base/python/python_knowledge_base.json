@@ -1,0 +1,14 @@
+[
+  {
+    "topic": "Python Decorators",
+    "content": "A decorator is a function that wraps another function to extend its behaviour without modifying it.\n\n```python\nfrom functools import wraps\nimport time\n\ndef timer(func):\n    @wraps(func)  # preserves __name__, __doc__\n    def wrapper(*args, **kwargs):\n        start = time.perf_counter()\n        result = func(*args, **kwargs)\n        print(f'{func.__name__} took {time.perf_counter()-start:.3f}s')\n        return result\n    return wrapper\n\n@timer\ndef heavy_computation(n):\n    return sum(range(n))\n```\n\nDecorators with arguments use a triple-nested function. Class-based decorators implement __call__. Common built-in decorators: @property, @staticmethod, @classmethod, @functools.lru_cache."
+  },
+  {
+    "topic": "Python Async/Await",
+    "content": "asyncio enables concurrent I/O-bound operations using a single-threaded event loop.\n\n```python\nimport asyncio\nimport httpx\n\nasync def fetch(url: str) -> str:\n    async with httpx.AsyncClient() as client:\n        resp = await client.get(url)\n        return resp.text\n\nasync def main():\n    # Run 3 requests concurrently\n    tasks = [fetch(f'https://api.example.com/{i}') for i in range(3)]\n    results = await asyncio.gather(*tasks)\n    return results\n\nif __name__ == '__main__':\n    asyncio.run(main())\n```\n\nKey concepts: coroutine (async def), awaitable, event loop, Task, Future.\nasyncio.gather() runs coroutines concurrently.\nasyncio.create_task() schedules coroutine without awaiting immediately.\nDo NOT use blocking calls (time.sleep, requests) inside async functions \u2014 use asyncio.sleep, httpx."
+  },
+  {
+    "question": "What is the Python GIL and how does it affect multithreading?",
+    "answer": "GIL (Global Interpreter Lock): A mutex in CPython that ensures only one thread executes Python bytecode at a time.\n\nImpact:\n- CPU-bound tasks: threading gives NO speedup (GIL prevents true parallelism). Use multiprocessing instead.\n- I/O-bound tasks: threading IS effective because GIL is released during I/O waits (file read, network, sleep).\n\nSolutions:\n- multiprocessing: Separate processes, each with own GIL. True parallelism. Higher memory overhead.\n- concurrent.futures.ProcessPoolExecutor: High-level multiprocessing.\n- asyncio: Single-threaded async I/O for I/O-bound concurrency.\n- C extensions: NumPy releases GIL for array operations \u2014 why NumPy is fast.\n\nGIL exists because CPython's memory management (reference counting) is not thread-safe."
+  }
+]

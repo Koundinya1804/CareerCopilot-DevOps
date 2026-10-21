@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Test / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+test.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Docker
+*.log
+
+# Alembic auto-gen (keep versions in git)
+alembic/versions/*.pyc

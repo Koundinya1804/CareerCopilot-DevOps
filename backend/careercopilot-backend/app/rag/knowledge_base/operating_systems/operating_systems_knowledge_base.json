@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Process vs Thread",
+    "content": "Process: Independent program in execution with its own memory space (code, heap, stack, data segments). Context switching is expensive. Communication via IPC (pipes, sockets, shared memory).\nThread: Lightweight execution unit within a process. Shares code, data, and heap with other threads but has its own stack and registers. Faster context switching. Communication via shared memory (needs synchronisation).\nMultithreading benefits: Parallelism, responsiveness, resource sharing.\nMultithreading risks: Race conditions, deadlocks, priority inversion."
+  },
+  {
+    "topic": "CPU Scheduling Algorithms",
+    "content": "Goal: Maximise CPU utilisation, minimise waiting time.\n\n1. FCFS (First Come First Serve): Non-preemptive. Simple but suffers from convoy effect (long jobs block short ones).\n2. SJF (Shortest Job First): Non-preemptive/preemptive (SRTF). Minimum average waiting time. Hard to predict burst time.\n3. Round Robin: Each process gets a time quantum (typically 10-100ms). Preemptive. Fair. Performance depends on quantum size.\n4. Priority Scheduling: Preemptive/non-preemptive. Risk of starvation (solved by aging \u2014 gradually increasing priority of waiting processes).\n5. Multilevel Queue: Separate queues for different process types (interactive, batch, system)."
+  },
+  {
+    "topic": "Deadlock",
+    "content": "Deadlock occurs when a set of processes are permanently blocked waiting for resources held by each other.\n\nCoffman Conditions (all must hold simultaneously):\n1. Mutual Exclusion: Resources are non-shareable.\n2. Hold and Wait: Process holds resources while waiting for others.\n3. No Preemption: Resources cannot be forcibly taken.\n4. Circular Wait: P1\u2192P2\u2192P3\u2192P1 resource cycle.\n\nHandling strategies:\n- Prevention: Eliminate one Coffman condition (e.g., request all resources at once).\n- Avoidance: Banker's Algorithm \u2014 only grant requests if the system remains in a safe state.\n- Detection & Recovery: Allow deadlocks, detect via resource allocation graph, recover by killing processes or resource preemption.\n- Ignorance (Ostrich Algorithm): Used by most OS (Linux, Windows) \u2014 deadlocks are rare; restart if they occur."
+  },
+  {
+    "topic": "Memory Management \u2014 Paging",
+    "content": "Paging eliminates external fragmentation by dividing:\n- Physical memory \u2192 fixed-size frames.\n- Logical memory \u2192 fixed-size pages (same size as frames).\n\nPage Table: Maps logical page number \u2192 physical frame number. Each process has its own page table stored in PCB.\nTLB (Translation Lookaside Buffer): Cache for page table entries. Hit ratio typically 98%+.\n\nPage Replacement Algorithms:\n- FIFO: Replace oldest page. Simple but poor performance (Belady's anomaly).\n- LRU: Replace least recently used. No Belady's anomaly. Expensive to implement perfectly.\n- Optimal: Replace page not used for longest time. Theoretical benchmark (requires future knowledge).\n- LRU Approximation: Clock algorithm (second-chance FIFO)."
+  },
+  {
+    "question": "What is a semaphore and how does it differ from a mutex?",
+    "answer": "Semaphore: Integer variable used for signalling between processes/threads. Two operations: wait() [P] decrements; signal() [V] increments.\n- Binary Semaphore: Value 0 or 1. Similar to mutex but can be released by any thread.\n- Counting Semaphore: Value \u2265 0. Controls access to a pool of N resources.\n\nMutex (Mutual Exclusion Lock): Binary lock owned by the thread that acquired it. Only the owner can release it.\n\nKey difference: Mutex has ownership (only locker can unlock); binary semaphore has no ownership (any thread can signal). Mutex is for mutual exclusion; semaphore is for signalling and resource counting."
+  }
+]
