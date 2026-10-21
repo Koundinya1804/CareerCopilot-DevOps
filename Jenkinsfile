@@ -7,22 +7,21 @@ pipeline {
         disableConcurrentBuilds()
     }
 
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+    environment {
+        MYSQL_PASSWORD = 'ci-placeholder-not-for-deployment'
+        MYSQL_ROOT_PASSWORD = 'ci-placeholder-not-for-deployment'
+    }
 
+    stages {
         stage('Validate Compose') {
             steps {
-                bat 'docker compose config --quiet'
+                sh 'docker compose config --quiet'
             }
         }
 
         stage('Build Docker Images') {
             steps {
-                bat 'docker compose build api frontend'
+                sh 'docker compose build api frontend'
             }
         }
     }
